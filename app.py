@@ -31,6 +31,7 @@ def obter_livro_por_id(id):
     for livro in livros:
         if livro.get('id') == id:
             return jsonify(livro)
+
 #Criar
 @app.route('/livros', methods=['POST'])
 def incluir_novo_livro():
@@ -47,7 +48,7 @@ def editar_livro_por_id(id):
         if livro.get('id') == id:
             livros[indice].update(livro_alterado)
             return jsonify(livros[indice])
-        
+
 # Excluir
 @app.route('/livros/<int:id>',methods=['DELETE'])
 def excluir_livro(id):
